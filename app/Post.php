@@ -10,10 +10,14 @@ class Post extends Model
 
 
 	use SoftDeletes;
+	
 	protected $fillable = [
 
 		'title', 'content', 'category_id', 'featured'
 	];
+
+
+	protected $dates= ['deleted_at'];
 
     public function category()
     {
