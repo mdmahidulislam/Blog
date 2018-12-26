@@ -12,12 +12,28 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="{{ asset('js/toastr.min.js')}}"></script>
+
+    <script> 
+
+            @if (Session::has('success'))
+
+                toastr.success("{{ Session::get('success')}}")
+
+            @endif
+
+
+
+    </script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css')}}">
 </head>
 <body>
     <div id="app">
