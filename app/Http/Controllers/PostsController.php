@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.posts.index')->with('posts',Post::all());
     }
 
     /**
@@ -25,7 +25,20 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create')->with('categories', Category::all());
+
+        $categories = Category::all();
+
+        if ($categories->count()==0) {
+
+
+            Session::flash('info','You must have categories before attempting to create a post');
+
+            return redirect()->back();
+        }
+
+
+
+        return view('admin.posts.create')->with('categories', $categories);
     }
 
     /**
@@ -65,7 +78,9 @@ class PostsController extends Controller
 
             'featured' => 'uploads/posts'.$featured_new_name,
 
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+
+            'slug' => str_slug($request->title)
 
 
 
@@ -73,7 +88,7 @@ class PostsController extends Controller
 
         Session::flash('success','Post created successfully!');
 
-          dd($request->all());
+          return redirect()->back();
     }
 
     /**
@@ -118,6 +133,37 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+        Session::flash('success','The post was just trashed');
+
+        return redirect()->back();
+    }
+
+
+    public function kill($id)
+    {
+
+        $post = Post::withTrashed()->where('id',$id)->first();
+
+
+        $post->forceDelete();
+
+        Session::flash('success','Post deleted permanently');
+
+        return redirect()->back();
+
+
+    }
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+
+        return view('admin.posts.trashed')->with('posts',$posts);
+
+
     }
 }
