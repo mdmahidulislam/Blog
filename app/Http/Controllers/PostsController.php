@@ -142,6 +142,15 @@ class PostsController extends Controller
         return redirect()->back();
     }
 
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+
+        return view('admin.posts.trashed')->with('posts',$posts);
+
+
+    }
+
 
     public function kill($id)
     {
@@ -158,12 +167,18 @@ class PostsController extends Controller
 
     }
 
-    public function trashed()
+    public function restore($id)
     {
-        $posts = Post::onlyTrashed()->get();
+        $post = Post::withTrashed()->where('id',$id)->first();
 
-        return view('admin.posts.trashed')->with('posts',$posts);
+        $post->restore();
+
+        Session::flash('success','Post restored seccessfully');
+
+        return redirect()->route('posts');
 
 
     }
+
+    
 }
