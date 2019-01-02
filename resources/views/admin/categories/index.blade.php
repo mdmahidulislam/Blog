@@ -8,6 +8,11 @@
 @section('content')
 
  <div class="panel panel-default">
+
+ 	<div class="panel-heading">
+ 		
+ 		Categories
+ 	</div>
  	
  	<div class="panel-body">
  		
@@ -36,41 +41,50 @@
 	 		</thead>
 
 		 	<tbody>
+
+		 		@if($categories->count()>0)
 		 		
-		 		@foreach($categories as $category)
+			 		@foreach($categories as $category)
 
-		 		<tr>
-		 			
-		 			<td>
-		 				{{ $category->name }}
+			 		<tr>
+			 			
+			 			<td>
+			 				{{ $category->name }}
 
-		 			</td>
+			 			</td>
 
-		 			<td>
-		 				
-		 				<a href="{{ route('category.edit',['id'=>$category->id])}}" class="btn btn-xs btn-info">
+			 			<td>
+			 				
+			 				<a href="{{ route('category.edit',['id'=>$category->id])}}" class="btn btn-xs btn-info">
 
-		 				Edit
-		 				</a>
-
-
-
-		 			</td>
-
-		 			<td>
-		 				
-		 				<a href="{{ route('category.delete',['id'=>$category->id])}}" class="btn btn-xs btn-danger">
-
-		 				Delete
-		 				</a>
+			 				Edit
+			 				</a>
 
 
 
-		 			</td>
-		 				
-		 		</tr>
+			 			</td>
 
-		 		@endforeach
+			 			<td>
+			 				
+			 				<a href="{{ route('category.delete',['id'=>$category->id])}}" class="btn btn-xs btn-danger">
+
+			 				Delete
+			 				</a>
+
+
+
+			 			</td>
+			 				
+			 		</tr>
+
+			 		@endforeach
+
+			 	@else
+
+		 			<th colspan="5" class="text-center"> No categories</th>
+
+
+		 		@endif
 
 
 		 	</tbody>
