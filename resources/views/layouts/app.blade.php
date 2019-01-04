@@ -97,6 +97,17 @@
                 </li>
 
 
+                 <li class="list-group-item">
+                    <a href="{{route('tags')}}">Tags</a>
+
+                </li>
+
+               <li class="list-group-item">
+                    <a href="{{route('tag.create')}}">Create a new tag</a>
+
+                </li>
+
+
 
                 <li class="list-group-item">
                     <a href="{{route('posts')}}">All Posts</a>
