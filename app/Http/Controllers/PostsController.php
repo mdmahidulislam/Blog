@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Tag;
 use Session;
 use App\Post;
 use App\Category;
@@ -38,7 +40,8 @@ class PostsController extends Controller
 
 
 
-        return view('admin.posts.create')->with('categories', $categories);
+        return view('admin.posts.create')->with('categories', $categories)
+                                         ->with('tags', Tag::all());
     }
 
     /**
@@ -49,6 +52,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        
       
 
         $this->validate($request,[
@@ -58,7 +62,9 @@ class PostsController extends Controller
 
             'content'=> 'required',
 
-            'category_id'=> 'required'
+            'category_id'=> 'required',
+
+            'tags' =>'required'
 
         ]);
 
@@ -86,6 +92,8 @@ class PostsController extends Controller
 
         ]);
 
+        $post->tags()->attach($request->tags);
+
         Session::flash('success','Post created successfully!');
 
           return redirect()->back();
@@ -112,7 +120,9 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        return view('admin.posts.edit')->with('post', $post)->with('categories', Category::all());
+        return view('admin.posts.edit')->with('post', $post)
+                                       ->with('categories', Category::all())
+                                       ->with('tags', Tag::all());;
     }
 
     /**
@@ -164,6 +174,8 @@ class PostsController extends Controller
            $post->save();
 
            Session::flash('success','Post updated successfully');
+
+           $post->tags()->sync($request->tags);
 
 
            return redirect()->route('posts');

@@ -146,6 +146,40 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 
 	]);
 
+	Route::get('/users',[
+
+		'uses' => 'UsersController@index',
+		'as' => 'users'
+	]);
+
+	Route::get('/users/create',[
+
+		'uses' => 'UsersController@create',
+		'as' => 'user.create'
+	]);
+
+	Route::post('/users/store',[
+
+		'uses' => 'UsersController@store',
+		'as' => 'user.store'
+	]);
+
+	Route::get('/user/admin/{id}', [
+
+		'uses' => 'UsersController@admin',
+		'as'=> 'user.admin'
+
+	]);
+
+	Route::get('/user/not-admin/{id}', [
+
+		'uses' => 'UsersController@not_admin',
+		'as'=> 'user.not.admin'
+
+	]);
+
+
+
 
 
 
