@@ -103,7 +103,9 @@
                 </li>
 
 
-                 <li class="list-group-item">
+                 @if(Auth::user()->admin)
+
+                    <li class="list-group-item">
                     <a href="{{route('users')}}">Users</a>
 
                 </li>
@@ -112,6 +114,8 @@
                     <a href="{{route('user.create')}}">New user</a>
 
                 </li>
+
+                 @endif
 
 
                <li class="list-group-item">
