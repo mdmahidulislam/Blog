@@ -55,14 +55,14 @@
 		 		
 		 		<label for="title">Facebook profile</label>
 
-		 		<input type="email" name="facebook" value="{{ $user->profile->facebook}}"class="form-control">
+		 		<input type="text" name="facebook" value="{{ $user->profile->facebook}}"class="form-control">
 		 	</div>
 
 		 	<div class="form-group">
 		 		
 		 		<label for="title">Youtube profile</label>
 
-		 		<input type="email" name="youtube"value="{{ $user->profile->youtube}}" class="form-control">
+		 		<input type="text" name="youtube"value="{{ $user->profile->youtube}}" class="form-control">
 		 	</div>
 
 
