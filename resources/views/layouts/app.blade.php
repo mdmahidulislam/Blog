@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css')}}">
+    @yield('styles')
 
 </head>
 <body>
@@ -199,6 +200,8 @@
 
 
     </script>
+
+@yield('scripts')
 
 </body>
 </html>
