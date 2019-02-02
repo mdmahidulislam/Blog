@@ -175,7 +175,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 
 		'uses' => 'UsersController@not_admin',
 		'as'=> 'user.not.admin'
-
+ 
 	]);
 
 	Route::get('user/profile',[
@@ -196,6 +196,21 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 
 		'uses' => 'ProfilesController@update',
 		'as' => 'user.profile.update'
+
+	]);
+
+	Route::get('/settings', [
+
+		'uses' => 'SettingsController@index',
+		'as' => 'settings'
+
+	]);
+
+
+	Route::post('/settings/update', [
+
+		'uses' => 'SettingsController@update',
+		'as' => 'settings.update'
 
 	]);
 
