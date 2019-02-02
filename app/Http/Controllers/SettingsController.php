@@ -37,6 +37,7 @@ class SettingsController extends Controller
 
 
     	]);
+    	
     	$settings = Setting::first();
 
     	$settings->site_name = request()->site_name;

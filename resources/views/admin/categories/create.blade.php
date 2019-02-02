@@ -31,7 +31,6 @@
 		 		<input type="text" name="name"class="form-control">
 		 	</div>
 
-		 		
 
 
 		 	<div class="form-group">
