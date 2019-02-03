@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+	Route::get('/', [
 
+		'uses' => 'FrontEndcontroller@index',
+		'as' => 'index'
+	]);
 Auth::routes();
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
+	
+
+
 	Route::get('/home', [
 		'uses'=>'HomeController@index',
 		'as'=>'home'
