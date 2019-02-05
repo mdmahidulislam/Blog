@@ -25,4 +25,15 @@ class FrontEndController extends Controller
     	->with('south_america', Category::find(12))
     	->with('settings', Setting::first());
     }
+
+    public function singlePost($slug)
+
+    {
+    	$post = post::where('slug', $slug)->first();
+
+    	return view('single')->with('post', $post)
+    						 ->with('title', $post->title)
+    						 ->with('settings', Setting::first())
+    	                     ->with('categories', Category::take(10)->get());
+    }
 }

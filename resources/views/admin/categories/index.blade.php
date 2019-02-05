@@ -10,8 +10,7 @@
  <div class="panel panel-default">
 
  	<div class="panel-heading">
- 		
- 		Categories
+ 		<a href="{{route('category.create')}}" class="btn btn-xs btn-success">Create a  new tag</a>
  	</div>
  	
  	<div class="panel-body">

@@ -16,6 +16,13 @@
 		'uses' => 'FrontEndcontroller@index',
 		'as' => 'index'
 	]);
+
+	Route::get('/{slug}', [
+		'uses' => 'FrontEndcontroller@singlePost',
+		'as' => 'post.single'
+
+	]);
+	
 Auth::routes();
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){

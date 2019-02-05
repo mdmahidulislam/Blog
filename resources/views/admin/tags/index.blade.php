@@ -9,10 +9,12 @@
 
  <div class="panel panel-default">
 
+ 	
+
  	<div class="panel-heading">
- 		
- 	 Tags
+ 		<a href="{{route('tag.create')}}" class="btn btn-xs btn-success">Create a  new tag</a>
  	</div>
+
  	
  	<div class="panel-body">
  		
@@ -36,6 +38,8 @@
 		 			Deleting
 
 		 		</th>
+
+		 	
 
 
 	 		</thead>
