@@ -17,7 +17,7 @@
 		'as' => 'index'
 	]);
 
-	Route::get('/{slug}', [
+	Route::get('/post/{slug}', [
 		'uses' => 'FrontEndcontroller@singlePost',
 		'as' => 'post.single'
 
