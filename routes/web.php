@@ -22,6 +22,12 @@
 		'as' => 'post.single'
 
 	]);
+
+	Route::get('/category/{id}', [
+		'uses' => 'FrontEndcontroller@category',
+		'as' => 'category.single'
+
+	]);
 	
 Auth::routes();
 
