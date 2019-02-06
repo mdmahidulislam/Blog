@@ -28,6 +28,12 @@
 		'as' => 'category.single'
 
 	]);
+
+	Route::get('/tag/{id}', [
+		'uses' => 'FrontEndcontroller@tag',
+		'as' => 'tag.single'
+
+	]);
 	
 Auth::routes();
 
