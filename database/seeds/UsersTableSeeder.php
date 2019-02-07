@@ -18,7 +18,6 @@ class UsersTableSeeder extends Seeder
         	'password'=>bcrypt('password'),
         	'admin' => 1
 
-
         ]);
       App\Profile::create([
 

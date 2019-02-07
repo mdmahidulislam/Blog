@@ -46,9 +46,9 @@
 
 		 	<div class="form-group">
 		 		
-		 		<label for="title">Upload new avator</label>
+		 		<label for="title">Upload new avatar</label>
 
-		 		<input type="file" name="avator"class="form-control">
+		 		<input type="file" name="avatar"class="form-control">
 		 	</div>
 
 		 	<div class="form-group">
