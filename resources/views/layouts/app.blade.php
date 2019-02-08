@@ -79,115 +79,115 @@
         <main class="py-4">
             <div class="container">
 
-            <div class="row">
+                <div class="row">
 
-            @if(Auth::check())
+                @if(Auth::check())
 
-            <div class="col-lg-4">
-                
-                 <ul class="list-group">
+                <div class="col-lg-4">
+                    
+                     <ul class="list-group">
 
-                 <li class="list-group-item">
-                    <a href="{{route('home')}}">Home</a>
+                     <li class="list-group-item">
+                        <a href="{{route('home')}}">Home</a>
 
-                </li>
+                    </li>
 
-                 <li class="list-group-item">
-                    <a href="{{route('categories')}}">Categories</a>
+                     <li class="list-group-item">
+                        <a href="{{route('categories')}}">Categories</a>
 
-                </li>
-
-
-                 <li class="list-group-item">
-                    <a href="{{route('tags')}}">Tags</a>
-
-                </li>
+                    </li>
 
 
-                 @if(Auth::user()->admin)
+                     <li class="list-group-item">
+                        <a href="{{route('tags')}}">Tags</a>
+
+                    </li>
+
+
+                     @if(Auth::user()->admin)
+
+                        <li class="list-group-item">
+                        <a href="{{route('users')}}">Users</a>
+
+                    </li>
+
+                     <li class="list-group-item">
+                        <a href="{{route('user.create')}}">New user</a>
+
+                    </li>
+
+                     @endif
+
+
+                     <li class="list-group-item">
+                        <a href="{{route('user.profile')}}">My profile</a>
+
+                    </li>
+
+
+
+
+
+                   <li class="list-group-item">
+                        <a href="{{route('tag.create')}}">Create a  new tag</a>
+
+                    </li>
+
+
 
                     <li class="list-group-item">
-                    <a href="{{route('users')}}">Users</a>
+                        <a href="{{route('posts')}}">All Posts</a>
 
-                </li>
+                    </li>
 
-                 <li class="list-group-item">
-                    <a href="{{route('user.create')}}">New user</a>
+                     <li class="list-group-item">
+                        <a href="{{route('posts.trashed')}}">All trashed Posts</a>
 
-                </li>
-
-                 @endif
+                    </li>
 
 
-                 <li class="list-group-item">
-                    <a href="{{route('user.profile')}}">My profile</a>
+                     <li class="list-group-item">
+                        <a href="{{route('category.create')}}">Create new category</a>
 
-                </li>
-
-
+                    </li>
 
 
+                    <li class="list-group-item">
+                        <a href="{{route('post.create')}}">Create new post</a>
 
-               <li class="list-group-item">
-                    <a href="{{route('tag.create')}}">Create a  new tag</a>
-
-                </li>
-
+                    </li>
 
 
-                <li class="list-group-item">
-                    <a href="{{route('posts')}}">All Posts</a>
+                    @if(Auth::user()->admin)
 
-                </li>
+                    <li class="list-group-item">
+                        <a href="{{route('settings')}}">Settings</a>
 
-                 <li class="list-group-item">
-                    <a href="{{route('posts.trashed')}}">All trashed Posts</a>
-
-                </li>
+                    </li>
 
 
-                 <li class="list-group-item">
-                    <a href="{{route('category.create')}}">Create new category</a>
-
-                </li>
+                    @endif
 
 
-                <li class="list-group-item">
-                    <a href="{{route('post.create')}}">Create new post</a>
-
-                </li>
+                </ul>
 
 
-                @if(Auth::user()->admin)
-
-                <li class="list-group-item">
-                    <a href="{{route('settings')}}">Settings</a>
-
-                </li>
+                </div>
 
 
                 @endif
 
-
-            </ul>
-
-
-            </div>
-
-
-            @endif
-
-           
+               
 
 
             <div class="col-lg-8">
             @yield('content')
-            </div>
+             </div>
 
             </div>
 
-            </div>
-        </main>
+        </div>
+    </main>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
